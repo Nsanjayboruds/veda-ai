@@ -144,7 +144,7 @@ export const useAssessmentStore = create<AssessmentStore>((set) => ({
         realGrading.push({
           questionId: q.id,
           score: result.score,
-          maxScore: q.marks,
+          maxScore: q.marks ?? 5,
           status: result.status,
           feedback: result.feedback
         });
@@ -153,7 +153,7 @@ export const useAssessmentStore = create<AssessmentStore>((set) => ({
         realGrading.push({
           questionId: q.id,
           score: 0,
-          maxScore: q.marks,
+          maxScore: q.marks ?? 5,
           status: 'incorrect',
           feedback: 'Failed to generate AI feedback due to an API error.'
         });
